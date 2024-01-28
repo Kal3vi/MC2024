@@ -1,4 +1,4 @@
-import com.example.mc2024.Message
+import com.example.mc2024.UserInterface.Message
 
 /**
  * SampleData for Jetpack Compose Tutorial
