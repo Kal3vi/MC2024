@@ -19,7 +19,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
@@ -29,18 +31,23 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+//import com.example.mc2024.data.entity.User
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun Login(
     navController: NavController
 ) {
-    Surface(modifier = Modifier.fillMaxSize(), color = Color.DarkGray) {
+    Surface(modifier = Modifier.fillMaxSize()) {
         val username = rememberSaveable { mutableStateOf("") }
         val password = rememberSaveable { mutableStateOf("") }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(16.dp)
                 .systemBarsPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -48,7 +55,7 @@ fun Login(
             Icon(
                 imageVector = Icons.Default.AccountCircle,
                 contentDescription = null,
-                modifier = Modifier.size(150.dp)
+                modifier = Modifier.size(200.dp)
             )
             Spacer(modifier = Modifier.height(10.dp))
             OutlinedTextField(
@@ -63,7 +70,7 @@ fun Login(
             Spacer(modifier = Modifier.height(10.dp))
             OutlinedTextField(
                 value = password.value,
-                onValueChange = { data -> password.value = data},
+                onValueChange = { data -> password.value = data },
                 label = { Text("Password")},
                 modifier = Modifier.fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(
@@ -73,13 +80,9 @@ fun Login(
             )
             Spacer(modifier = Modifier.height(10.dp))
             Button(
-                onClick = { navController.navigate("home") {
-                    popUpTo("home") {
-                        inclusive = true
-                    }
-                } },
+                onClick = { navController.navigate("chat") },
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().size(55.dp),
                 shape = MaterialTheme.shapes.small
             ) {
                 Text(text = "Login")
@@ -87,9 +90,3 @@ fun Login(
         }
     }
 }
-
-//@Preview
-//@Composable
-//fun Preview() {
-//    Login(navController = NavController())
-//}

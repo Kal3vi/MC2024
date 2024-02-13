@@ -34,7 +34,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
+import androidx.room.Room
 import com.example.mc2024.R
+import com.example.mc2024.data.room.MCDatabase
 
 
 class MainActivity : ComponentActivity() {
