@@ -12,7 +12,7 @@ import com.example.mc2024.data.entity.Users
 import java.nio.ByteBuffer
 
 @Dao
-interface UserDao {
+abstract class UserDao {
     @Query("SELECT * FROM users WHERE username LIKE :username")
     abstract suspend fun findByName(username: String): Users?
 
@@ -20,7 +20,7 @@ interface UserDao {
     abstract fun getUserDetails() : Flow<List<Users>>
 
     @Insert
-    abstract suspend fun insertUser(users: Users): Long
+    abstract fun insertUser(entity: Users): Long
 
 }
 

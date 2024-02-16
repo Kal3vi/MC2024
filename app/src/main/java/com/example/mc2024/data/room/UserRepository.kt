@@ -7,11 +7,15 @@ import kotlinx.coroutines.flow.Flow
 class UserRepository(
     private val userDao: UserDao
 ) {
-    suspend fun getUserWithUsername(username: String): Users? = userDao.findByName(username)
+    //fun getUserWithUsername(username: String): Users? = userDao.findByName(username)
 
     val getUserDetails: Flow<List<Users>> get() =  userDao.getUserDetails()
 
     suspend fun addUser(user: Users) : Long {
-        return userDao.insertUser(user)
+        return when (val local = userDao.findByName(user.username)){
+            null -> userDao.insertUser(user)
+            else -> local.uid
+        }
+
     }
 }

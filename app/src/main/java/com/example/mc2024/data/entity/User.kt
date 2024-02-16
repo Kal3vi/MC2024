@@ -17,7 +17,7 @@ import java.nio.ByteBuffer
     tableName = "users",
 )
 data class Users(
-    @PrimaryKey(autoGenerate = true) val uid: Int = 0,
+    @PrimaryKey(autoGenerate = true) val uid: Long = 0,
     @ColumnInfo(name = "username") val username: String,
     @ColumnInfo(name = "password") val password: String,
     //val picture: Bitmap?
