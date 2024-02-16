@@ -1,4 +1,4 @@
-package com.example.mc2024.ui.payment
+/*package com.example.mc2024.ui.payment
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -132,4 +132,4 @@ private fun createErrorNotification() {
 */
 data class PaymentViewState(
     val categories: List<Category> = emptyList()
-)
+)*/

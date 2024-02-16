@@ -1,4 +1,4 @@
-package com.example.mc2024.data.entity
+/*package com.example.mc2024.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -30,3 +30,4 @@ data class Payment(
     @ColumnInfo(name = "payment_category_id") val paymentCategoryId: Long,
     @ColumnInfo(name = "payment_amount") val paymentAmount: Double
 )
+*/

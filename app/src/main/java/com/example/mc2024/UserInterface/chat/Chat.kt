@@ -1,8 +1,6 @@
 package com.example.mc2024.UserInterface.chat
 
 import androidx.compose.runtime.Composable
-import android.content.res.Configuration
-import android.os.Bundle
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image

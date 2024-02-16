@@ -1,4 +1,4 @@
-package com.example.mc2024.UserInterface
+package com.example.mc2024
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember

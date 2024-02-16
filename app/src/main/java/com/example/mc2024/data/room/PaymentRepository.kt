@@ -1,4 +1,4 @@
-package com.example.mc2024.data.repository
+/*package com.example.mc2024.data.repository
 
 import com.example.mc2024.data.entity.Payment
 import com.example.mc2024.data.room.PaymentDao
@@ -24,4 +24,4 @@ class PaymentRepository(
      * Add a new [Payment] to the payment store
      */
     suspend fun addPayment(payment: Payment) = paymentDao.insert(payment)
-}
+}*/

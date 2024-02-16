@@ -1,4 +1,4 @@
-package com.example.mc2024.data.room
+/*package com.example.mc2024.data.room
 
 import androidx.room.Embedded
 import androidx.room.Ignore
@@ -31,4 +31,4 @@ class PaymentToCategory {
     }
 
     override fun hashCode(): Int = Objects.hash(payment, _categories)
-}
+}*/

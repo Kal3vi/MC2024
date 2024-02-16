@@ -1,4 +1,4 @@
-package com.example.mc2024.UserInterface.home.CategoryPayment
+/*package com.example.mc2024.UserInterface.home.CategoryPayment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -31,4 +31,4 @@ class CategoryPaymentViewModel(
 
 data class CategoryPaymentViewState(
     val payments: List<PaymentToCategory> = emptyList()
-)
+)*/

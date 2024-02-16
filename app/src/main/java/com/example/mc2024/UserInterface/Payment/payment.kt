@@ -1,4 +1,4 @@
-package com.example.mc2024.UserInterface.payment
+/*package com.example.mc2024.UserInterface.payment
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -159,4 +159,4 @@ private fun CategoryListDropdown(
             }
         )
     }
-}
+}*/

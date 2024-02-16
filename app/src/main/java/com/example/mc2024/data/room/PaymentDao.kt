@@ -1,4 +1,4 @@
-package com.example.mc2024.data.room
+/*package com.example.mc2024.data.room
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -29,4 +29,4 @@ abstract class PaymentDao {
 
     @Delete
     abstract suspend fun delete(entity: Payment): Int
-}
+}*/

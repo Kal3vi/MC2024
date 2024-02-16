@@ -1,53 +1,51 @@
 package com.example.mc2024.UserInterface
 
-//import SampleData
+import android.Manifest
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.LaunchedEffect
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
 import com.example.mc2024.ui.theme.MC2024Theme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Row
-import androidx.compose.ui.res.painterResource
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
-import android.content.res.Configuration
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.clickable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.animateContentSize
-import androidx.room.Room
-import com.example.mc2024.R
-import com.example.mc2024.data.room.MCDatabase
-
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalPermissionsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MC2024Theme {
-                MCApp()
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    color = MaterialTheme.colors.background)
+                {
+                    val notificationPermissionState = rememberPermissionState(permission = Manifest.permission.POST_NOTIFICATIONS)
+                    val cameraPermissionState = rememberPermissionState(permission = Manifest.permission.CAMERA)
+
+                    LaunchedEffect(key1 = Unit){
+                        notificationPermissionState.launchPermissionRequest()
+                        cameraPermissionState.launchPermissionRequest()
+
+                    }
+                    if (notificationPermissionState.status.isGranted && cameraPermissionState.status.isGranted){
+                        MCApp()
+                    }else{
+                        if(notificationPermissionState.status.shouldShowRationale ||
+                            cameraPermissionState.status.shouldShowRationale){
+                        }else {
+                            MCApp()
+                            //Text("Permissions needed")
+                        }
+                    }
+
+                }
             }
         }
     }
 }
-
 data class Message(val author: String, val body: String)
