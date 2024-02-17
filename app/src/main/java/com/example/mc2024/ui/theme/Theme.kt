@@ -13,7 +13,7 @@ private val DarkColorPaletteOld = darkColors(
 )
 private val DarkColorPalette = darkColors(
     primary = pink100,
-    primaryVariant = pink900,
+    primaryVariant = Purple200,
     secondary = pink50
 )
 
@@ -25,7 +25,7 @@ private val LightColorPaletteOld = lightColors(
 )
 private val LightColorPalette = lightColors(
     primary = pink100,
-    primaryVariant = pink900,
+    primaryVariant = Purple200,
     secondary = pink50
 
 )

@@ -85,7 +85,7 @@ private fun newReminderNotification(reminder: Reminder){
 
     with(NotificationManagerCompat.from(Graph.appContext)) {
         //notificationId is unique for each notification that you define
-        notify(notificationId, builder.build()) // Something should be done abt this
+        notify(notificationId, builder.build())
     }
 }
 

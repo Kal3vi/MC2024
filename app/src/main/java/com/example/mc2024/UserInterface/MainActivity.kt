@@ -38,8 +38,8 @@ class MainActivity : ComponentActivity() {
                         if(notificationPermissionState.status.shouldShowRationale ||
                             cameraPermissionState.status.shouldShowRationale){
                         }else {
-                            MCApp()
-                            //Text("Permissions needed")
+                            //MCApp()
+                            Text("Permissions needed")
                         }
                     }
 

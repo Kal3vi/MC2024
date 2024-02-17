@@ -70,11 +70,9 @@ class HomeViewModel (
     }
     private fun loadCategoriesFromDb() {
         val list = mutableListOf(
-            Category(name = "Very Low"),
             Category(name = "Low"),
             Category(name = "Normal"),
             Category(name = "High"),
-            Category(name = "Very High"),
         )
         viewModelScope.launch {
             list.forEach { category -> categoryRepository.addCategory(category) }
